@@ -20,7 +20,7 @@ exports.addBeach = async (req, res, next) => {
   Drone.find({ droneNumber })
     .then(async result => {
       if (result.length) {
-        return res.status(409).send( "Drone number already exist");
+        return res.status(409).send("Drone number already exist");
       } else {
         const creationResult = await Drone.create({ droneNumber });
         Beach.create({

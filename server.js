@@ -27,5 +27,6 @@ app.get("/secret-route", Middleware.validateToken, (req, res, next) => {
 });
 app.get("/beaches", Middleware.validateToken, beachCtl.getBeaches);
 app.get("/lifeGuards", Middleware.validateToken, lifeGuardCtl.getLifeGuards);
+app.get("/lifeGuard/:lifeGuardId", Middleware.validateToken, lifeGuardCtl.getLifeGuard);
 
 app.listen(port, () => console.log("server running on port:" + port));
