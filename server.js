@@ -9,6 +9,7 @@ const Middleware = require("./middleware/validator");
 const userCtl = require("./controllers/user.ctl");
 const beachCtl = require("./controllers/beach.ctl");
 const lifeGuardCtl = require("./controllers/lifeGuard.ctl");
+const eventCtl = require("./controllers/event.ctl");
 
 app
   .use(express.json())
@@ -20,6 +21,7 @@ app
 app.post("/sign-up", Middleware.validateRegistrationDetails, userCtl.signUp);
 app.post("/login", userCtl.login);
 app.post("/addBeach", Middleware.validateToken, beachCtl.addBeach);
+app.post("/addEventNote", Middleware.validateToken, eventCtl.addEventNote);
 
 // each route should include Middleware.validateToken
 app.get("/secret-route", Middleware.validateToken, (req, res, next) => {
@@ -27,6 +29,17 @@ app.get("/secret-route", Middleware.validateToken, (req, res, next) => {
 });
 app.get("/beaches", Middleware.validateToken, beachCtl.getBeaches);
 app.get("/lifeGuards", Middleware.validateToken, lifeGuardCtl.getLifeGuards);
-app.get("/lifeGuard/:lifeGuardId", Middleware.validateToken, lifeGuardCtl.getLifeGuard);
+app.get(
+  "/lifeGuard/:lifeGuardId",
+  Middleware.validateToken,
+  lifeGuardCtl.getLifeGuard
+);
+app.get(
+  "/events/:beachId",
+  Middleware.validateToken,
+  eventCtl.getEventsByBeach
+);
+
+app.delete('/removeEvent/:eventId', Middleware.validateToken, eventCtl.removeEvent)
 
 app.listen(port, () => console.log("server running on port:" + port));

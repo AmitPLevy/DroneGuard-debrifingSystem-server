@@ -10,9 +10,10 @@ const event = new mongoose.Schema(
     },
     startTime: Date,
     endTime: Date,
-    liftGuard: { type: ObjectId, ref: "LifeGuard" },
-    beach: { type: ObjectId, ref: "Beach" },
-    videoUrl: String
+    lifeGuardId: { type: ObjectId, ref: "LifeGuard" },
+    beachId: { type: ObjectId, ref: "Beach" },
+    videoUrl: String,
+    note: String
   },
   { timestamps: true }
 );
