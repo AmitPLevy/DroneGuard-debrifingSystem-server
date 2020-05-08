@@ -8,10 +8,10 @@ const event = new mongoose.Schema(
       required: true,
       auto: true
     },
-    startTime: Date,
-    endTime: Date,
-    lifeGuardId: { type: ObjectId, ref: "LifeGuard" },
-    beachId: { type: ObjectId, ref: "Beach" },
+    startTime: { type: Date, required: true },
+    endTime: { type: Date, required: true },
+    lifeGuardId: { type: ObjectId, ref: "LifeGuard", required: true },
+    beachId: { type: ObjectId, ref: "Beach", required: true },
     videoUrl: String,
     note: String
   },

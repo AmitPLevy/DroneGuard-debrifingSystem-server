@@ -79,7 +79,7 @@
       <workItem from="1587718634693" duration="40000" />
       <workItem from="1587719205748" duration="11000" />
       <workItem from="1587719250104" duration="291000" />
-      <workItem from="1587719679107" duration="15692000" />
+      <workItem from="1587719679107" duration="19330000" />
     </task>
     <task id="LOCAL-00001" summary="added consts">
       <created>1585411884529</created>
@@ -123,7 +123,14 @@
       <option name="project" value="LOCAL" />
       <updated>1587736716440</updated>
     </task>
-    <option name="localTasksCounter" value="7" />
+    <task id="LOCAL-00007" summary="added addNote and remove event routes">
+      <created>1588705204778</created>
+      <option name="number" value="00007" />
+      <option name="presentableId" value="LOCAL-00007" />
+      <option name="project" value="LOCAL" />
+      <updated>1588705204778</updated>
+    </task>
+    <option name="localTasksCounter" value="8" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -158,7 +165,8 @@
     <MESSAGE value="remove console.log" />
     <MESSAGE value="cross application code refactoring" />
     <MESSAGE value="added route getLifeGuard" />
-    <option name="LAST_COMMIT_MESSAGE" value="added route getLifeGuard" />
+    <MESSAGE value="added addNote and remove event routes" />
+    <option name="LAST_COMMIT_MESSAGE" value="added addNote and remove event routes" />
   </component>
   <component name="WindowStateProjectService">
     <state x="1864" y="106" key="#com.intellij.execution.impl.EditConfigurationsDialog" timestamp="1585410207842">
@@ -173,15 +181,15 @@
       <screen x="1440" y="-96" width="1920" height="1080" />
     </state>
     <state x="2088" y="187" key="#com.intellij.openapi.updateSettings.impl.PluginUpdateInfoDialog/1440.-96.1920.1080/0.0.1440.900@1440.-96.1920.1080" timestamp="1587718590201" />
-    <state x="1440" y="-96" width="1920" height="1080" key="CommitChangelistDialog2" timestamp="1587736716051">
+    <state x="1440" y="-96" width="1920" height="1080" key="CommitChangelistDialog2" timestamp="1588705204454">
       <screen x="1440" y="-96" width="1920" height="1080" />
     </state>
     <state x="0" y="0" width="1440" height="900" key="CommitChangelistDialog2/1440.-96.1920.1080/0.0.1440.900@0.0.1440.900" timestamp="1587718396314" />
-    <state x="1440" y="-96" width="1920" height="1080" key="CommitChangelistDialog2/1440.-96.1920.1080/0.0.1440.900@1440.-96.1920.1080" timestamp="1587736716051" />
-    <state width="1145" height="466" key="DebuggerActiveHint" timestamp="1587736142628">
+    <state x="1440" y="-96" width="1920" height="1080" key="CommitChangelistDialog2/1440.-96.1920.1080/0.0.1440.900@1440.-96.1920.1080" timestamp="1588705204454" />
+    <state width="1145" height="466" key="DebuggerActiveHint" timestamp="1588936770861">
       <screen x="1440" y="-96" width="1920" height="1080" />
     </state>
-    <state width="1145" height="466" key="DebuggerActiveHint/1440.-96.1920.1080/0.0.1440.900@1440.-96.1920.1080" timestamp="1587736142628" />
+    <state width="1145" height="466" key="DebuggerActiveHint/1440.-96.1920.1080/0.0.1440.900@1440.-96.1920.1080" timestamp="1588936770861" />
     <state x="1824" y="73" key="DiffContextDialog" timestamp="1585412030864">
       <screen x="1440" y="-96" width="1920" height="1080" />
     </state>
@@ -306,14 +314,14 @@
     <state width="1419" height="289" key="GridCell.Tab.3.right/0.23.1440.797@0.23.1440.797" timestamp="1585683811169" />
     <state width="1899" height="324" key="GridCell.Tab.3.right/1440.-96.1920.1080/0.0.1440.900@1440.-96.1920.1080" timestamp="1588703493749" />
     <state width="1899" height="438" key="GridCell.Tab.3.right/1440.-96.1920.1080/0.23.1440.877@1440.-96.1920.1080" timestamp="1586521192873" />
-    <state x="2000" y="184" key="Vcs.Push.Dialog.v2" timestamp="1587736718067">
+    <state x="2000" y="184" key="Vcs.Push.Dialog.v2" timestamp="1588705206355">
       <screen x="1440" y="-96" width="1920" height="1080" />
     </state>
-    <state x="2000" y="184" key="Vcs.Push.Dialog.v2/1440.-96.1920.1080/0.0.1440.900@1440.-96.1920.1080" timestamp="1587736718067" />
-    <state x="2002" y="57" key="com.intellij.openapi.editor.actions.MultiplePasteAction$ClipboardContentChooser" timestamp="1587829082856">
+    <state x="2000" y="184" key="Vcs.Push.Dialog.v2/1440.-96.1920.1080/0.0.1440.900@1440.-96.1920.1080" timestamp="1588705206355" />
+    <state x="2002" y="57" key="com.intellij.openapi.editor.actions.MultiplePasteAction$ClipboardContentChooser" timestamp="1588936432595">
       <screen x="1440" y="-96" width="1920" height="1080" />
     </state>
-    <state x="2002" y="57" key="com.intellij.openapi.editor.actions.MultiplePasteAction$ClipboardContentChooser/1440.-96.1920.1080/0.0.1440.900@1440.-96.1920.1080" timestamp="1587829082856" />
+    <state x="2002" y="57" key="com.intellij.openapi.editor.actions.MultiplePasteAction$ClipboardContentChooser/1440.-96.1920.1080/0.0.1440.900@1440.-96.1920.1080" timestamp="1588936432595" />
     <state x="1894" y="20" width="1133" height="719" key="find.popup" timestamp="1588703002723">
       <screen x="1440" y="-96" width="1920" height="1080" />
     </state>

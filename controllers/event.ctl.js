@@ -24,6 +24,23 @@ exports.addEventNote = async (req, res, next) => {
     });
 };
 
+exports.addEvent = async (req, res, next) => {
+  const { startTime, endTime, beachId, lifeGuardId, videoUrl } = req.body;
+  Event.create({
+    startTime,
+    endTime,
+    beachId: new ObjectId(beachId),
+    lifeGuardId: new ObjectId(lifeGuardId),
+    videoUrl
+  })
+    .then(response => {
+      return res.status(200).send(response);
+    })
+    .catch(error => {
+      return res.status(500).send(error);
+    });
+};
+
 exports.removeEvent = async (req, res, next) => {
   const { eventId } = req.params;
   Event.deleteOne({ _id: new ObjectId(eventId) })
