@@ -2,7 +2,7 @@ const bcrypt = require("bcryptjs");
 const jwt = require("jsonwebtoken");
 const User = require("../models/user");
 const LifeGuard = require("../models/lifeGuard");
-const Supervisor = require("../models/supervisor");
+const Admin = require("../models/admin");
 
 exports.signUp = async (req, res, next) => {
   const { email, password, name, image, userType } = req.body;
@@ -18,7 +18,7 @@ exports.signUp = async (req, res, next) => {
           let creationResult =
             userType === "LifeGuard"
               ? await LifeGuard.create({ name, image })
-              : await Supervisor.create({ name, image });
+              : await Admin.create({ name, image });
           User.create({
             _id: creationResult._id,
             email: lowerEmail,
@@ -39,44 +39,51 @@ exports.signUp = async (req, res, next) => {
 
 exports.login = (req, res, next) => {
   const { email, password } = req.body;
+  const { apptype } = req.headers;
   const lowerEmail = email.toLowerCase();
   User.find({ email: lowerEmail })
     .then(result => {
       if (!result.length) {
         return res.status(401).send("Username or password is incorrect!");
       } else {
-        bcrypt.compare(password, result[0]["password"], (bError, bResult) => {
-          // wrong password
-          if (bError || !bResult) {
-            return res.status(401).send("Username or password is incorrect!");
-          }
-          if (bResult) {
-            const token = jwt.sign(
-              {
-                email: result[0].email,
-                userId: result[0].id
-              },
-              "SECRETKEY",
-              {
-                expiresIn: "7d"
-              }
-            );
-            User.findOneAndUpdate(
-              { email: lowerEmail },
-              { lastLogin: Date.now() }
-            )
-              .then(result => {
-                return res.status(200).send({
-                  msg: "Logged in!",
-                  token,
-                  user: result[0]
+        if (apptype === "dashboard" && result[0].userType === "LifeGuard") {
+          return res.status(401).send("Missing permissions");
+        } else {
+          bcrypt.compare(password, result[0]["password"], (bError, bResult) => {
+            // wrong password
+            if (bError || !bResult) {
+              return res.status(401).send("Username or password is incorrect!");
+            }
+            if (bResult) {
+              const token = jwt.sign(
+                {
+                  email: result[0].email,
+                  userId: result[0].id
+                },
+                "SECRETKEY",
+                {
+                  expiresIn: "7d"
+                }
+              );
+              User.findOneAndUpdate(
+                { email: lowerEmail },
+                { lastLogin: Date.now() }
+              )
+                .then(result => {
+                  return res.status(200).send({
+                    msg: "Logged in!",
+                    token,
+                    user: result[0]
+                  });
+                })
+                .catch(error => {
+                  return res
+                    .status(401)
+                    .send("Username or password is incorrect!");
                 });
-              })
-              .catch(error => {
-                return res.status(401).send("Username or password is incorrect!");
-              });
-          }
-        });
+            }
+          });
+        }
       }
     })
     .catch(error => {

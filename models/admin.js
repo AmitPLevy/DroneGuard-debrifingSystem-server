@@ -1,7 +1,7 @@
 const mongoose = require("mongoose");
 const { ObjectId } = mongoose.Schema.Types;
 
-const supervisor = new mongoose.Schema(
+const admin = new mongoose.Schema(
   {
     _id: {
       type: ObjectId,
@@ -14,10 +14,10 @@ const supervisor = new mongoose.Schema(
   { timestamps: true }
 );
 
-supervisor.virtual("lifeGuardId").get(() => {
+admin.virtual("lifeGuardId").get(() => {
   return this._id;
 });
 
-const Supervisor = mongoose.model("Supervisor", supervisor);
+const Admin = mongoose.model("Admin", admin);
 
-module.exports = Supervisor;
+module.exports = Admin;

@@ -17,7 +17,7 @@ const user = new mongoose.Schema(
     lastLogin: Date,
     userType: {
       type: String,
-      enum: ["LifeGuard", "Supervisor"]
+      enum: ["LifeGuard", "Admin"]
     }
   },
   { timestamps: true }
