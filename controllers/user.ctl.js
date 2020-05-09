@@ -3,6 +3,33 @@ const jwt = require("jsonwebtoken");
 const User = require("../models/user");
 const LifeGuard = require("../models/lifeGuard");
 const Admin = require("../models/admin");
+const Beach = require("../models/beach");
+const Promise = require("bluebird");
+const mongoose = require("mongoose");
+const { ObjectId } = mongoose.Types;
+
+exports.users = async (req, res, next) => {
+  let users = [];
+  User.find({})
+    .then(response => {
+      Promise.map(response, async user => {
+        const userData =
+          user.userType === "LifeGuard"
+            ? await LifeGuard.find({ _id: user._id })
+            : await Admin.find({ _id: user._id });
+        const beaches = await Beach.find({
+          lifeGuards: { $in: [new ObjectId(user._id)] }
+        });
+        users.push({ ...user.toObject(), name: userData[0].name, beaches });
+      }).then(() => {
+        return res.status(200).send(users);
+      });
+    })
+
+    .catch(error => {
+      return res.status(500).send(error);
+    });
+};
 
 exports.signUp = async (req, res, next) => {
   const { email, password, name, image, userType } = req.body;

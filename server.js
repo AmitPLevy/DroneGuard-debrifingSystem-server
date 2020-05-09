@@ -40,7 +40,12 @@ app.get(
   Middleware.validateToken,
   eventCtl.getEventsByBeach
 );
+app.get("/users", Middleware.validateToken, userCtl.users);
 
-app.delete('/removeEvent/:eventId', Middleware.validateToken, eventCtl.removeEvent)
+app.delete(
+  "/removeEvent/:eventId",
+  Middleware.validateToken,
+  eventCtl.removeEvent
+);
 
 app.listen(port, () => console.log("server running on port:" + port));
