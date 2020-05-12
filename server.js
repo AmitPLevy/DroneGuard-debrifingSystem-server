@@ -23,6 +23,7 @@ app.post("/login", userCtl.login);
 app.post("/addBeach", Middleware.validateToken, beachCtl.addBeach);
 app.post("/addEventNote", Middleware.validateToken, eventCtl.addEventNote);
 app.post("/addEvent", Middleware.validateToken, eventCtl.addEvent);
+app.post("/updateEvent", Middleware.validateToken, eventCtl.updateEvent);
 
 // each route should include Middleware.validateToken
 app.get("/secret-route", Middleware.validateToken, (req, res, next) => {

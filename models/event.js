@@ -13,6 +13,8 @@ const event = new mongoose.Schema(
     lifeGuardId: { type: ObjectId, ref: "LifeGuard", required: true },
     beachId: { type: ObjectId, ref: "Beach", required: true },
     videoUrl: String,
+    thumbnailURL: String,
+    telemtryURL: String,
     note: String
   },
   { timestamps: true }

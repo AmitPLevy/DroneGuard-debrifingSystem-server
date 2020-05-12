@@ -25,14 +25,20 @@ exports.addEventNote = async (req, res, next) => {
 };
 
 exports.addEvent = async (req, res, next) => {
-  const { startTime, endTime, beachId, lifeGuardId, videoUrl } = req.body;
-  Event.create({
-    startTime,
-    endTime,
-    beachId: new ObjectId(beachId),
-    lifeGuardId: new ObjectId(lifeGuardId),
-    videoUrl
-  })
+  const event = req.body;
+  Event.create(event)
+    .then(response => {
+      return res.status(200).send(response);
+    })
+    .catch(error => {
+      return res.status(500).send(error);
+    });
+};
+
+exports.updateEvent = async (req, res, next) => {
+  const event = req.body;
+  const { eventId } = event;
+  Event.findOneAndUpdate({ _id: new ObjectId(eventId) }, event)
     .then(response => {
       return res.status(200).send(response);
     })
