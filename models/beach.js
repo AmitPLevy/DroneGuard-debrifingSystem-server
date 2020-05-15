@@ -10,7 +10,8 @@ const beach = new mongoose.Schema(
     },
     name: String,
     droneId: { type: ObjectId, ref: "Drone" },
-    lifeGuards: [{ type: ObjectId, ref: "LifeGuard" }]
+    lifeGuards: [{ type: ObjectId, ref: "LifeGuard" }],
+    image: String
   },
   { timestamps: true }
 );

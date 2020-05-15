@@ -15,7 +15,7 @@ exports.getBeaches = async (req, res, next) => {
 
 //should we add validation?
 exports.addBeach = async (req, res, next) => {
-  const { name, droneNumber, lifeGuards } = req.body;
+  const { name, droneNumber, lifeGuards, image } = req.body;
 
   Drone.find({ droneNumber })
     .then(async result => {
@@ -26,7 +26,8 @@ exports.addBeach = async (req, res, next) => {
         Beach.create({
           name,
           droneId: creationResult._id,
-          lifeGuards
+          lifeGuards,
+          image
         })
           .then(response => {
             return res.status(200).send(response);

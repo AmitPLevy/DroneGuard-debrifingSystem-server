@@ -27,9 +27,6 @@
   <component name="ChangeListManager">
     <list default="true" id="4c0deb95-3848-41e4-acac-e5a24568f59d" name="Default Changelist" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/controllers/event.ctl.js" beforeDir="false" afterPath="$PROJECT_DIR$/controllers/event.ctl.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/models/event.js" beforeDir="false" afterPath="$PROJECT_DIR$/models/event.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/server.js" beforeDir="false" afterPath="$PROJECT_DIR$/server.js" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -79,7 +76,7 @@
       <workItem from="1587718634693" duration="40000" />
       <workItem from="1587719205748" duration="11000" />
       <workItem from="1587719250104" duration="291000" />
-      <workItem from="1587719679107" duration="34090000" />
+      <workItem from="1587719679107" duration="37073000" />
     </task>
     <task id="LOCAL-00001" summary="added consts">
       <created>1585411884529</created>
@@ -151,7 +148,14 @@
       <option name="project" value="LOCAL" />
       <updated>1589029438298</updated>
     </task>
-    <option name="localTasksCounter" value="11" />
+    <task id="LOCAL-00011" summary="added updateEvent route">
+      <created>1589308439666</created>
+      <option name="number" value="00011" />
+      <option name="presentableId" value="LOCAL-00011" />
+      <option name="project" value="LOCAL" />
+      <updated>1589308439666</updated>
+    </task>
+    <option name="localTasksCounter" value="12" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -190,7 +194,8 @@
     <MESSAGE value="added addEvent route" />
     <MESSAGE value="renamed supervisor to admin and added check for apptype in sign in" />
     <MESSAGE value="added getUsers route" />
-    <option name="LAST_COMMIT_MESSAGE" value="added getUsers route" />
+    <MESSAGE value="added updateEvent route" />
+    <option name="LAST_COMMIT_MESSAGE" value="added updateEvent route" />
   </component>
   <component name="WindowStateProjectService">
     <state x="1864" y="106" key="#com.intellij.execution.impl.EditConfigurationsDialog" timestamp="1585410207842">
@@ -205,11 +210,11 @@
       <screen x="1440" y="-96" width="1920" height="1080" />
     </state>
     <state x="2088" y="187" key="#com.intellij.openapi.updateSettings.impl.PluginUpdateInfoDialog/1440.-96.1920.1080/0.0.1440.900@1440.-96.1920.1080" timestamp="1587718590201" />
-    <state x="1440" y="-96" width="1920" height="1080" key="CommitChangelistDialog2" timestamp="1589029437978">
+    <state x="1440" y="-96" width="1920" height="1080" key="CommitChangelistDialog2" timestamp="1589308439229">
       <screen x="1440" y="-96" width="1920" height="1080" />
     </state>
     <state x="0" y="0" width="1440" height="900" key="CommitChangelistDialog2/1440.-96.1920.1080/0.0.1440.900@0.0.1440.900" timestamp="1587718396314" />
-    <state x="1440" y="-96" width="1920" height="1080" key="CommitChangelistDialog2/1440.-96.1920.1080/0.0.1440.900@1440.-96.1920.1080" timestamp="1589029437978" />
+    <state x="1440" y="-96" width="1920" height="1080" key="CommitChangelistDialog2/1440.-96.1920.1080/0.0.1440.900@1440.-96.1920.1080" timestamp="1589308439229" />
     <state width="1392" height="466" key="DebuggerActiveHint" timestamp="1589308169080">
       <screen x="1440" y="-96" width="1920" height="1080" />
     </state>
@@ -358,10 +363,10 @@
     <state width="1899" height="438" key="GridCell.Tab.3.right/1440.-73.1920.1057/0.23.1440.797@1440.-73.1920.1057" timestamp="1589013485422" />
     <state width="1899" height="360" key="GridCell.Tab.3.right/1440.-96.1920.1080/0.0.1440.900@1440.-96.1920.1080" timestamp="1589308319198" />
     <state width="1899" height="438" key="GridCell.Tab.3.right/1440.-96.1920.1080/0.23.1440.877@1440.-96.1920.1080" timestamp="1586521192873" />
-    <state x="2000" y="184" key="Vcs.Push.Dialog.v2" timestamp="1589029439712">
+    <state x="2000" y="184" key="Vcs.Push.Dialog.v2" timestamp="1589308441679">
       <screen x="1440" y="-96" width="1920" height="1080" />
     </state>
-    <state x="2000" y="184" key="Vcs.Push.Dialog.v2/1440.-96.1920.1080/0.0.1440.900@1440.-96.1920.1080" timestamp="1589029439712" />
+    <state x="2000" y="184" key="Vcs.Push.Dialog.v2/1440.-96.1920.1080/0.0.1440.900@1440.-96.1920.1080" timestamp="1589308441679" />
     <state x="2002" y="57" key="com.intellij.openapi.editor.actions.MultiplePasteAction$ClipboardContentChooser" timestamp="1589018812514">
       <screen x="1440" y="-96" width="1920" height="1080" />
     </state>
@@ -380,10 +385,10 @@
     <breakpoint-manager>
       <breakpoints>
         <line-breakpoint enabled="true" type="javascript">
-          <url>file://$PROJECT_DIR$/controllers/event.ctl.js</url>
-          <line>28</line>
+          <url>file://$PROJECT_DIR$/controllers/beach.ctl.js</url>
+          <line>20</line>
           <properties lambdaOrdinal="-1" />
-          <option name="timeStamp" value="31" />
+          <option name="timeStamp" value="32" />
         </line-breakpoint>
       </breakpoints>
     </breakpoint-manager>
