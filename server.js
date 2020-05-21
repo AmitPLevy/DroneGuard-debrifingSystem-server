@@ -42,6 +42,11 @@ app.get(
   eventCtl.getEventsByBeach
 );
 app.get("/users", Middleware.validateToken, userCtl.users);
+app.get(
+  "/beachesByLifeGuard/:lifeGuardId",
+  Middleware.validateToken,
+  beachCtl.getBeachesByLifeGuard
+);
 
 app.delete(
   "/removeEvent/:eventId",

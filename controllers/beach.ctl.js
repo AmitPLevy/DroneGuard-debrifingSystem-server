@@ -41,3 +41,20 @@ exports.addBeach = async (req, res, next) => {
       return res.status(500).send(error);
     });
 };
+
+exports.getBeachesByLifeGuard = async (req, res, next) => {
+  const { lifeGuardId } = req.params;
+  let beaches = [];
+  Beach.find({})
+    .then(response => {
+      response.map(beach => {
+        if (beach.lifeGuards.includes(lifeGuardId)) {
+          beaches.push(beach);
+        }
+      });
+      return res.status(200).send(beaches);
+    })
+    .catch(error => {
+      return res.status(500).send(error);
+    });
+};
