@@ -73,6 +73,7 @@ exports.login = (req, res, next) => {
       if (!result.length) {
         return res.status(401).send("Username or password is incorrect!");
       } else {
+        console.log(`user = ${result[0]}`)
         if (apptype === "dashboard" && result[0].userType === "LifeGuard") {
           return res.status(401).send("Missing permissions");
         } else {
@@ -96,7 +97,8 @@ exports.login = (req, res, next) => {
                 { email: lowerEmail },
                 { lastLogin: Date.now() }
               )
-                .then(result => {
+                .then(() => {
+                  console.log(`returning 200. user = ${result[0]}`)
                   return res.status(200).send({
                     msg: "Logged in!",
                     token,
