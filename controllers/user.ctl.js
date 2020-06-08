@@ -97,12 +97,12 @@ exports.login = (req, res, next) => {
                 { email: lowerEmail },
                 { lastLogin: Date.now() }
               )
-                .then(() => {
-                  console.log(`returning 200. user = ${result[0]}`)
+                .then((result) => {
+                  console.log(`returning 200. user = ${result}`)
                   return res.status(200).send({
                     msg: "Logged in!",
                     token,
-                    user: result[0]
+                    user: result
                   });
                 })
                 .catch(error => {
