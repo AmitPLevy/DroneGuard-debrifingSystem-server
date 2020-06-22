@@ -6,7 +6,7 @@ const event = new mongoose.Schema(
     _id: {
       type: ObjectId,
       required: true,
-      auto: true
+      auto: true,
     },
     startTime: { type: Date, required: true },
     endTime: { type: Date, required: true },
@@ -15,7 +15,8 @@ const event = new mongoose.Schema(
     videoUrl: String,
     thumbnailURL: String,
     telemtryURL: String,
-    note: String
+    loggerURL: String,
+    note: String,
   },
   { timestamps: true }
 );
