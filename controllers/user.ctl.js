@@ -73,7 +73,6 @@ exports.login = (req, res, next) => {
       if (!result.length) {
         return res.status(401).send("Username or password is incorrect!");
       } else {
-        console.log(`user = ${result[0]}`)
         if (apptype === "dashboard" && result[0].userType === "LifeGuard") {
           return res.status(401).send("Missing permissions");
         } else {
@@ -97,12 +96,16 @@ exports.login = (req, res, next) => {
                 { email: lowerEmail },
                 { lastLogin: Date.now() }
               )
-                .then((result) => {
-                  console.log(`returning 200. user = ${result}`)
+                .then(async result => {
+                  const userData =
+                    result.userType === "LifeGuard"
+                      ? await LifeGuard.find({ _id: result._id })
+                      : await Admin.find({ _id: result._id });
                   return res.status(200).send({
                     msg: "Logged in!",
                     token,
-                    user: result
+                    user: result,
+                    userData
                   });
                 })
                 .catch(error => {
